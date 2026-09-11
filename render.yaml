@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: haru-hankan
+    name: receipt-bot-mvp
     runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
@@ -16,7 +16,7 @@ services:
       - key: DATABASE_URL
         sync: false
       - key: PUBLIC_BASE_URL
-        value: https://haru-hankan.onrender.com
+        value: https://receipt-bot-mvp-sg.onrender.com
       - key: REPORT_SIGNING_SECRET
         generateValue: true
       - key: REPORT_LINK_TTL_SECONDS
