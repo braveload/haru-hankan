@@ -21,6 +21,10 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     assert 'href="./landing-sample-2.html"' in home.text
     assert 'href="./landing-sample-3.html"' in home.text
     assert 'href="./logo-samples.html"' in home.text
+    assert 'href="./landing-page-service.html"' in home.text
+    assert 'href="./logo-design-service.html"' in home.text
+    assert 'type="application/ld+json"' in home.text
+    assert "haru-hankan-og.png" in home.text
 
     for path in (
         "/privacy.html",
@@ -29,9 +33,12 @@ def test_website_pages_assets_and_search_files(monkeypatch):
         "/landing-sample-2.html",
         "/landing-sample-3.html",
         "/logo-samples.html",
+        "/landing-page-service.html",
+        "/logo-design-service.html",
         "/styles.css",
         "/script.js",
         "/assets/brand/haru-hankan-symbol.svg",
+        "/assets/brand/haru-hankan-og.png",
         "/og.png",
     ):
         assert client.get(path).status_code == 200
@@ -47,3 +54,5 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     assert "https://haru-hankan.onrender.com/landing-sample-2.html" in sitemap.text
     assert "https://haru-hankan.onrender.com/landing-sample-3.html" in sitemap.text
     assert "https://haru-hankan.onrender.com/logo-samples.html" in sitemap.text
+    assert "https://haru-hankan.onrender.com/landing-page-service.html" in sitemap.text
+    assert "https://haru-hankan.onrender.com/logo-design-service.html" in sitemap.text

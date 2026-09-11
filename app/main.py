@@ -112,6 +112,16 @@ def website_logo_samples() -> FileResponse:
     return FileResponse(SITE_DIR / "logo-samples.html", media_type="text/html; charset=utf-8")
 
 
+@app.get("/landing-page-service.html")
+def website_landing_page_service() -> FileResponse:
+    return FileResponse(SITE_DIR / "landing-page-service.html", media_type="text/html; charset=utf-8")
+
+
+@app.get("/logo-design-service.html")
+def website_logo_design_service() -> FileResponse:
+    return FileResponse(SITE_DIR / "logo-design-service.html", media_type="text/html; charset=utf-8")
+
+
 @app.get("/styles.css")
 def website_styles() -> FileResponse:
     return FileResponse(SITE_DIR / "styles.css", media_type="text/css; charset=utf-8")
@@ -145,6 +155,8 @@ def website_sitemap(request: Request) -> Response:
         f"  <url><loc>{base_url}/landing-sample-2.html</loc><priority>0.6</priority></url>\n"
         f"  <url><loc>{base_url}/landing-sample-3.html</loc><priority>0.6</priority></url>\n"
         f"  <url><loc>{base_url}/logo-samples.html</loc><priority>0.6</priority></url>\n"
+        f"  <url><loc>{base_url}/landing-page-service.html</loc><priority>0.8</priority></url>\n"
+        f"  <url><loc>{base_url}/logo-design-service.html</loc><priority>0.8</priority></url>\n"
         "</urlset>\n"
     )
     return Response(xml, media_type="application/xml")
