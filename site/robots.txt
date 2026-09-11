@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://haru-hankan.onrender.com/sitemap.xml
