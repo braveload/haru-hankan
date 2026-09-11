@@ -17,10 +17,12 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     assert "https://mail.google.com/mail/?view=cm" in home.text
     assert "https://mail.naver.com/v2/new?to=" in home.text
     assert ".contact-card .btn.ghost { color:#14181c; border-color:#d7dde2; }" in home.text
+    assert 'href="./landing-sample.html"' in home.text
 
     for path in (
         "/privacy.html",
         "/terms.html",
+        "/landing-sample.html",
         "/styles.css",
         "/script.js",
         "/assets/brand/haru-hankan-symbol.svg",
@@ -35,3 +37,4 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     sitemap = client.get("/sitemap.xml")
     assert sitemap.status_code == 200
     assert "https://haru-hankan.onrender.com/privacy.html" in sitemap.text
+    assert "https://haru-hankan.onrender.com/landing-sample.html" in sitemap.text

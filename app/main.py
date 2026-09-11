@@ -92,6 +92,11 @@ def website_terms() -> FileResponse:
     return FileResponse(SITE_DIR / "terms.html", media_type="text/html; charset=utf-8")
 
 
+@app.get("/landing-sample.html")
+def website_landing_sample() -> FileResponse:
+    return FileResponse(SITE_DIR / "landing-sample.html", media_type="text/html; charset=utf-8")
+
+
 @app.get("/styles.css")
 def website_styles() -> FileResponse:
     return FileResponse(SITE_DIR / "styles.css", media_type="text/css; charset=utf-8")
@@ -121,6 +126,7 @@ def website_sitemap(request: Request) -> Response:
         f"  <url><loc>{base_url}/</loc><priority>1.0</priority></url>\n"
         f"  <url><loc>{base_url}/privacy.html</loc><priority>0.3</priority></url>\n"
         f"  <url><loc>{base_url}/terms.html</loc><priority>0.3</priority></url>\n"
+        f"  <url><loc>{base_url}/landing-sample.html</loc><priority>0.6</priority></url>\n"
         "</urlset>\n"
     )
     return Response(xml, media_type="application/xml")
