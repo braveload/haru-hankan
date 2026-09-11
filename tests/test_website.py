@@ -13,6 +13,9 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     assert "{{BASE_URL}}" not in home.text
     assert "https://haru-hankan.onrender.com/" in home.text
     assert 'action="mailto:' not in home.text
+    assert "mailto:" not in home.text
+    assert "https://mail.google.com/mail/?view=cm" in home.text
+    assert "https://mail.naver.com/v2/new?to=" in home.text
 
     for path in (
         "/privacy.html",
