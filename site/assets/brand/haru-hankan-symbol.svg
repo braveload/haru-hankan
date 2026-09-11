@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" role="img" aria-labelledby="title desc">
+  <title id="title">하루한칸 심볼</title>
+  <desc id="desc">다섯 칸 가운데 한 칸을 주황색으로 채운 하루한칸 심볼</desc>
+  <g fill="none" stroke="#14181c" stroke-width="2.5"><rect x="8" y="6" width="32" height="32" rx="8"/><rect x="51" y="6" width="32" height="32" rx="8"/><rect x="137" y="6" width="32" height="32" rx="8"/><rect x="180" y="6" width="32" height="32" rx="8"/></g>
+  <rect x="94" y="6" width="32" height="32" rx="8" fill="#ff9142"/>
+</svg>
