@@ -18,11 +18,17 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     assert "https://mail.naver.com/v2/new?to=" in home.text
     assert ".contact-card .btn.ghost { color:#14181c; border-color:#d7dde2; }" in home.text
     assert 'href="./landing-sample.html"' in home.text
+    assert 'href="./landing-sample-2.html"' in home.text
+    assert 'href="./landing-sample-3.html"' in home.text
+    assert 'href="./logo-samples.html"' in home.text
 
     for path in (
         "/privacy.html",
         "/terms.html",
         "/landing-sample.html",
+        "/landing-sample-2.html",
+        "/landing-sample-3.html",
+        "/logo-samples.html",
         "/styles.css",
         "/script.js",
         "/assets/brand/haru-hankan-symbol.svg",
@@ -38,3 +44,6 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     assert sitemap.status_code == 200
     assert "https://haru-hankan.onrender.com/privacy.html" in sitemap.text
     assert "https://haru-hankan.onrender.com/landing-sample.html" in sitemap.text
+    assert "https://haru-hankan.onrender.com/landing-sample-2.html" in sitemap.text
+    assert "https://haru-hankan.onrender.com/landing-sample-3.html" in sitemap.text
+    assert "https://haru-hankan.onrender.com/logo-samples.html" in sitemap.text
