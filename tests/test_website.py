@@ -43,6 +43,11 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     ):
         assert client.get(path).status_code == 200
 
+    for path in ("/landing-page-service.html", "/logo-design-service.html"):
+        service_page = client.get(path)
+        assert "mail.google.com/mail/?view=cm" in service_page.text
+        assert "mail.naver.com/v2/new?to=" in service_page.text
+
     robots = client.get("/robots.txt")
     assert robots.status_code == 200
     assert "https://haru-hankan.onrender.com/sitemap.xml" in robots.text
