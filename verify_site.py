@@ -8,6 +8,7 @@ EXPECTED_HTML_PAGES = 9
 BUSINESS_EMAIL = "zxc1316@naver.com"
 INSTAGRAM_URL = "https://www.instagram.com/haruhankan.official/"
 LANDING_PAGE_PRICES = ("290,000", "490,000", "790,000")
+LOGO_DESIGN_PRICES = ("90,000", "190,000", "390,000")
 OLD_EMAILS = ("ygham82@gmail.com", "ygham82%40gmail.com")
 
 
@@ -61,6 +62,11 @@ def verify() -> None:
         "Landing-page package pricing is incomplete"
     )
     assert 'id="pricing"' in service_html, "Pricing section anchor is missing"
+    logo_service_html = (SITE_DIR / "logo-design-service.html").read_text(encoding="utf-8")
+    assert all(price in logo_service_html for price in LOGO_DESIGN_PRICES), (
+        "Logo-design package pricing is incomplete"
+    )
+    assert 'id="pricing"' in logo_service_html, "Logo pricing section anchor is missing"
     typography_css = (SITE_DIR / "typography.css").read_text(encoding="utf-8")
     compact_css = "".join(typography_css.split())
     assert "word-break:keep-all" in compact_css
