@@ -27,6 +27,7 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     assert 'href="./logo-samples.html"' in home.text
     assert 'href="./landing-page-service.html"' in home.text
     assert 'href="./logo-design-service.html"' in home.text
+    assert "로고 샘플 15종" in home.text
     assert 'type="application/ld+json"' in home.text
     assert "haru-hankan-og.png" in home.text
 
@@ -43,6 +44,15 @@ def test_website_pages_assets_and_search_files(monkeypatch):
         "/script.js",
         "/assets/brand/haru-hankan-symbol.svg",
         "/assets/brand/haru-hankan-og.png",
+        "/assets/portfolio/gyeongseong-dabang.png",
+        "/assets/portfolio/nova-labs.png",
+        "/assets/portfolio/flux.png",
+        "/assets/portfolio/orbit.png",
+        "/assets/portfolio/muse.png",
+        "/assets/portfolio/noir-atelier.png",
+        "/assets/portfolio/urban-co.png",
+        "/assets/portfolio/sunny-days-coffee.png",
+        "/assets/portfolio/maison-cafe.png",
         "/og.png",
     ):
         assert client.get(path).status_code == 200
@@ -53,6 +63,11 @@ def test_website_pages_assets_and_search_files(monkeypatch):
         assert "mail.naver.com/v2/new?to=" in service_page.text
         assert "zxc1316%40naver.com" in service_page.text
         assert "ygham82%40gmail.com" not in service_page.text
+
+    logo_samples = client.get("/logo-samples.html")
+    assert "인스타그램 리브랜딩 9종" in logo_samples.text
+    assert logo_samples.text.count('class="social-card"') == 9
+    assert "추가 로고 콘셉트 6종" in logo_samples.text
 
     robots = client.get("/robots.txt")
     assert robots.status_code == 200
