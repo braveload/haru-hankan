@@ -7,6 +7,7 @@ SITE_DIR = Path(__file__).resolve().parent / "site"
 EXPECTED_HTML_PAGES = 9
 BUSINESS_EMAIL = "zxc1316@naver.com"
 INSTAGRAM_URL = "https://www.instagram.com/haruhankan.official/"
+LANDING_PAGE_PRICES = ("290,000", "490,000", "790,000")
 OLD_EMAILS = ("ygham82@gmail.com", "ygham82%40gmail.com")
 
 
@@ -55,6 +56,11 @@ def verify() -> None:
 
     assert BUSINESS_EMAIL in combined_html, "Business contact email is missing"
     assert INSTAGRAM_URL in combined_html, "Official Instagram link is missing"
+    service_html = (SITE_DIR / "landing-page-service.html").read_text(encoding="utf-8")
+    assert all(price in service_html for price in LANDING_PAGE_PRICES), (
+        "Landing-page package pricing is incomplete"
+    )
+    assert 'id="pricing"' in service_html, "Pricing section anchor is missing"
     typography_css = (SITE_DIR / "typography.css").read_text(encoding="utf-8")
     compact_css = "".join(typography_css.split())
     assert "word-break:keep-all" in compact_css
