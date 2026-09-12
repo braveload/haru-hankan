@@ -6,6 +6,7 @@ from urllib.parse import unquote, urlsplit
 SITE_DIR = Path(__file__).resolve().parent / "site"
 EXPECTED_HTML_PAGES = 9
 BUSINESS_EMAIL = "zxc1316@naver.com"
+INSTAGRAM_URL = "https://www.instagram.com/haruhankan.official/"
 OLD_EMAILS = ("ygham82@gmail.com", "ygham82%40gmail.com")
 
 
@@ -50,6 +51,7 @@ def verify() -> None:
                 assert target.is_file(), f"Broken local reference in {page.name}: {reference}"
 
     assert BUSINESS_EMAIL in combined_html, "Business contact email is missing"
+    assert INSTAGRAM_URL in combined_html, "Official Instagram link is missing"
     assert not any(email in combined_html for email in OLD_EMAILS), (
         "Old personal contact email is still present"
     )
