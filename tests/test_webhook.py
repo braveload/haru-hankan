@@ -108,6 +108,7 @@ def test_private_image_is_downloaded_once_and_duplicate_is_blocked(monkeypatch):
 
 def test_receipt_review_edit_confirm_summary_and_signed_excel(tmp_path, monkeypatch):
     client = TestClient(main.app)
+    current_date = datetime.now(UTC).strftime("%Y-%m-%d")
     extracted = client.post("/kakao/webhook", json=image_payload())
     assert extracted.status_code == 200
     assert "스타벅스 강남점" in response_text(extracted)
@@ -119,7 +120,10 @@ def test_receipt_review_edit_confirm_summary_and_signed_excel(tmp_path, monkeypa
 
     edited = client.post(
         "/kakao/webhook",
-        json=text_payload("수정 상호명=스타벅스 선릉점; 금액=5,000; 카테고리=식비; 구분=개인"),
+        json=text_payload(
+            f"수정 상호명=스타벅스 선릉점; 금액=5,000; 날짜={current_date}; "
+            "카테고리=식비; 구분=개인"
+        ),
     )
     assert edited.status_code == 200
     assert "스타벅스 선릉점" in response_text(edited)
@@ -133,6 +137,7 @@ def test_receipt_review_edit_confirm_summary_and_signed_excel(tmp_path, monkeypa
     assert len(rows) == 1
     assert rows[0]["merchant"] == "스타벅스 선릉점"
     assert rows[0]["amount"] == 5000
+    assert rows[0]["date"] == current_date
 
     summary = client.post("/kakao/webhook", json=text_payload("이번달"))
     assert summary.status_code == 200
