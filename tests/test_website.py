@@ -16,6 +16,10 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     assert "mailto:" not in home.text
     assert "https://mail.google.com/mail/?view=cm" in home.text
     assert "https://mail.naver.com/v2/new?to=" in home.text
+    assert "zxc1316%40naver.com" in home.text
+    assert "ygham82@gmail.com" not in home.text
+    assert "word-break:keep-all" in home.text
+    assert "--meta-text:#8a93a0" in home.text
     assert ".contact-card .btn.ghost { color:#14181c; border-color:#d7dde2; }" in home.text
     assert 'href="./landing-sample.html"' in home.text
     assert 'href="./landing-sample-2.html"' in home.text
@@ -47,6 +51,8 @@ def test_website_pages_assets_and_search_files(monkeypatch):
         service_page = client.get(path)
         assert "mail.google.com/mail/?view=cm" in service_page.text
         assert "mail.naver.com/v2/new?to=" in service_page.text
+        assert "zxc1316%40naver.com" in service_page.text
+        assert "ygham82%40gmail.com" not in service_page.text
 
     robots = client.get("/robots.txt")
     assert robots.status_code == 200
