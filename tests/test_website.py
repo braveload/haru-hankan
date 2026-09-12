@@ -20,7 +20,7 @@ def test_website_pages_assets_and_search_files(monkeypatch):
     assert "ygham82@gmail.com" not in home.text
     assert "word-break:keep-all" in home.text
     assert "--meta-text:#8a93a0" in home.text
-    assert ".contact-card .btn.ghost { color:#14181c; border-color:#d7dde2; }" in home.text
+    assert ".contact-card .btn.ghost { color:var(--paper); border-color:currentColor; }" in home.text
     assert 'href="./landing-sample.html"' in home.text
     assert 'href="./landing-sample-2.html"' in home.text
     assert 'href="./landing-sample-3.html"' in home.text
