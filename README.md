@@ -10,9 +10,12 @@
 
 ```text
 site/            Render에 게시되는 HTML, CSS, JavaScript와 이미지
+supabase/        문의 DB 스키마와 제출용 Edge Function 원본
 verify_site.py   내부 링크, 필수 페이지, 문의 주소를 확인하는 표준 라이브러리 검사
 render.yaml      Render 정적 사이트 설정
 ```
+
+홈페이지 문의는 Supabase의 `haru_hankan_inquiries` 테이블에 저장됩니다. 공개 사용자는 테이블을 직접 조회하거나 수정할 수 없고, 제출용 Edge Function만 서버 권한으로 기록합니다.
 
 ## 로컬 확인
 

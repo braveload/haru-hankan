@@ -10,6 +10,7 @@ INSTAGRAM_URL = "https://www.instagram.com/haruhankan.official/"
 LANDING_PAGE_PRICES = ("290,000", "490,000", "790,000")
 LOGO_DESIGN_PRICES = ("90,000", "190,000", "390,000")
 OLD_EMAILS = ("ygham82@gmail.com", "ygham82%40gmail.com")
+INQUIRY_ENDPOINT = "https://hvnoylwqzpbxxhmnqbzb.supabase.co/functions/v1/submit-haru-hankan-inquiry"
 
 
 class ReferenceParser(HTMLParser):
@@ -74,6 +75,13 @@ def verify() -> None:
     assert not any(email in combined_html for email in OLD_EMAILS), (
         "Old personal contact email is still present"
     )
+    home_html = (SITE_DIR / "index.html").read_text(encoding="utf-8")
+    assert 'data-inquiry-form' in home_html, "Homepage inquiry form is missing"
+    assert INQUIRY_ENDPOINT in home_html, "Inquiry API endpoint is missing"
+    for field in ('name="name"', 'name="contact"', 'name="inquiry_type"', 'name="privacy_consent"'):
+        assert field in home_html, f"Inquiry form field is missing: {field}"
+    privacy_html = (SITE_DIR / "privacy.html").read_text(encoding="utf-8")
+    assert "상담 종료 후 6개월" in privacy_html, "Inquiry retention notice is missing"
 
 
 if __name__ == "__main__":

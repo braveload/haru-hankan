@@ -78,18 +78,37 @@
     .about p { margin:0 0 14px; font-size:15px; line-height:1.75; color:var(--ink-soft); max-width:56ch; }
     .about p:last-child { margin-bottom:0; }
     .about b { color:var(--ink); font-weight:600; }
-    .contact-card { background:var(--ink); color:var(--paper); border-radius:18px; padding:40px clamp(24px,5vw,48px); display:flex; flex-direction:column; gap:18px; }
+    .contact-card { background:var(--ink); color:var(--paper); border-radius:18px; padding:40px clamp(24px,5vw,48px); display:grid; grid-template-columns:minmax(0,.82fr) minmax(320px,1.18fr); gap:clamp(28px,6vw,64px); align-items:start; }
+    .contact-copy { display:flex; flex-direction:column; gap:18px; }
     .contact-card h2 { margin:0; font-size:26px; letter-spacing:-.01em; max-width:20ch; }
     .contact-card p { margin:0; max-width:48ch; opacity:.72; font-size:14.5px; line-height:1.7; }
     .contact-row { display:flex; gap:12px; flex-wrap:wrap; padding-top:6px; }
     .contact-card .btn.primary { background:var(--accent); color:#1c1206; }
     .contact-card .btn.ghost { color:var(--paper); border-color:currentColor; }
+    .inquiry-form { padding:clamp(20px,4vw,30px); border-radius:16px; background:#fff; color:#14181c; box-shadow:var(--shadow); }
+    .form-field { display:block; margin-bottom:14px; }
+    .form-label { display:block; margin-bottom:7px; font-size:13px; font-weight:600; color:#4b535c; }
+    .form-control { width:100%; min-height:52px; padding:14px 15px; border:1px solid #d7dde2; border-radius:10px; background:#fff; color:#14181c; font:inherit; font-size:15px; outline:none; transition:border-color .2s ease,box-shadow .2s ease; }
+    textarea.form-control { min-height:96px; resize:vertical; }
+    .form-control:focus { border-color:var(--accent); box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 22%,transparent); }
+    .form-control::placeholder { color:#818a92; opacity:1; }
+    .form-consent { display:flex; gap:9px; align-items:flex-start; margin:4px 0 16px; color:#4b535c; font-size:12px; line-height:1.55; }
+    .form-consent input { width:17px; height:17px; margin:2px 0 0; accent-color:var(--accent); flex:0 0 auto; }
+    .form-consent a { font-weight:600; text-underline-offset:3px; }
+    .form-submit { width:100%; min-height:52px; justify-content:center; border:0; cursor:pointer; font:inherit; }
+    .form-submit:disabled { opacity:.62; cursor:wait; }
+    .form-status { min-height:20px; margin:12px 0 0 !important; color:#4b535c !important; font-size:12px !important; text-align:center; opacity:1 !important; }
+    .form-status.success { color:#207a57 !important; }
+    .form-status.error { color:#b43b32 !important; }
+    .form-note { margin:6px 0 0 !important; color:#818a92 !important; font-size:11px !important; text-align:center; opacity:1 !important; }
+    .honeypot { position:absolute !important; left:-10000px !important; width:1px !important; height:1px !important; overflow:hidden !important; }
     .reveal { opacity:0; transform:translateY(18px); transition:opacity .6s ease,transform .6s ease; }
     .reveal.is-visible { opacity:1; transform:translateY(0); }
     footer { padding-block:30px 60px; }
     footer .wrap { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink-faint); }
     .footer-links { display:flex; gap:14px; }
-    @media (max-width:560px) { .about { grid-template-columns:1fr; } }
+    @media (max-width:760px) { .contact-card { grid-template-columns:1fr; } }
+    @media (max-width:560px) { .about { grid-template-columns:1fr; } .contact-card { padding:26px 18px; } .inquiry-form { padding:18px 14px; } .contact-row { align-items:stretch; flex-direction:column; } .contact-row .btn { justify-content:center; } }
     @media (prefers-color-scheme:dark) { .work-card:hover { box-shadow:0 10px 24px rgba(0,0,0,.45); } }
     @media (prefers-reduced-motion:reduce) { .work-card { transition:none; } .work-card:hover { transform:none; } .reveal { opacity:1; transform:none; transition:none; } }
   </style>
@@ -104,7 +123,7 @@
       <article class="work-card"><div class="top-row"><h3>로고 · 브랜딩</h3><span class="tag open">상시 의뢰</span></div><p>카페, 스타트업, 패션 브랜드 등 업종별 톤에 맞춘 로고와 브랜드 가이드를 제작합니다. Lite/Standard/Premium 패키지로 진행합니다.</p><div class="meta">9만원부터 · Lite / Standard / Premium</div><div class="sample-links"><a class="sample-link" href="./logo-design-service.html#pricing">가격·서비스 안내 →</a><a class="sample-link" href="./logo-samples.html">로고 샘플 15종 →</a></div></article>
     </div></div></section>
     <section class="reveal"><div class="wrap"><div class="section-head"><h2>하루한칸 소개</h2><div class="note">ABOUT</div></div><div class="about"><div><div class="mark-tile interactive-mark" role="group" tabindex="0" aria-label="하루한칸 심볼 — 칸을 클릭하면 고른 하루가 옮겨갑니다"><svg viewBox="0 0 220 44" aria-hidden="true"><rect class="cell" x="8" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="51" y="6" width="32" height="32" rx="8"></rect><rect class="cell cell--today" x="94" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="137" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="180" y="6" width="32" height="32" rx="8"></rect></svg></div><div class="hint mono">칸을 클릭해 보세요</div></div><div><p><b>티거</b>가 만드는 1인 개발 스튜디오입니다. 큰 계획보다는 하루에 풀 수 있는 문제 하나를 골라 만들고, 다음 날 또 하나를 고르는 방식으로 일합니다.</p><p>다섯 칸 중 고른 하루만 색이 채워지는 심볼처럼, 매일 조금씩 쌓아가는 것들이 카드파일럿 같은 앱이 되고 컨버전랩 같은 서비스가 됩니다.</p></div></div></div></section>
-    <section id="contact" class="reveal"><div class="wrap"><div class="contact-card"><h2>오늘, 같이 만들어볼까요.</h2><p>로고·브랜딩, 랜딩페이지 제작, 혹은 카드파일럿 베타 테스터 참여까지 — 편한 채널을 골라 문의해주세요.</p><div class="contact-row"><a class="btn primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=zxc1316%40naver.com&amp;su=%ED%95%98%EB%A3%A8%ED%95%9C%EC%B9%B8%20%EB%AC%B8%EC%9D%98" target="_blank" rel="noopener noreferrer">Gmail로 문의</a><a class="btn ghost" href="https://mail.naver.com/v2/new?to=zxc1316%40naver.com&amp;subject=%ED%95%98%EB%A3%A8%ED%95%9C%EC%B9%B8%20%EB%AC%B8%EC%9D%98" target="_blank" rel="noopener noreferrer">네이버메일로 문의</a><a class="btn ghost" href="https://www.instagram.com/haruhankan.official/" target="_blank" rel="noopener noreferrer" aria-label="하루한칸 인스타그램 새 창에서 보기">Instagram 보기</a></div></div></div></section>
+    <section id="contact" class="reveal"><div class="wrap"><div class="contact-card"><div class="contact-copy"><h2>오늘, 같이 만들어볼까요.</h2><p>이름과 연락처를 남겨주시면 확인 후 연락드릴게요. 메일이나 인스타그램으로 직접 문의하셔도 됩니다.</p><div class="contact-row"><a class="btn primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=zxc1316%40naver.com&amp;su=%ED%95%98%EB%A3%A8%ED%95%9C%EC%B9%B8%20%EB%AC%B8%EC%9D%98" target="_blank" rel="noopener noreferrer">Gmail로 문의</a><a class="btn ghost" href="https://mail.naver.com/v2/new?to=zxc1316%40naver.com&amp;subject=%ED%95%98%EB%A3%A8%ED%95%9C%EC%B9%B8%20%EB%AC%B8%EC%9D%98" target="_blank" rel="noopener noreferrer">네이버메일로 문의</a><a class="btn ghost" href="https://www.instagram.com/haruhankan.official/" target="_blank" rel="noopener noreferrer" aria-label="하루한칸 인스타그램 새 창에서 보기">Instagram 보기</a></div></div><form class="inquiry-form" data-inquiry-form><div class="form-field"><label class="form-label" for="inquiry-name">이름 또는 회사명 <span aria-hidden="true">*</span></label><input class="form-control" id="inquiry-name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="이름 또는 회사명을 입력해 주세요" required></div><div class="form-field"><label class="form-label" for="inquiry-contact">연락처 <span aria-hidden="true">*</span></label><input class="form-control" id="inquiry-contact" name="contact" type="text" autocomplete="email" maxlength="150" placeholder="이메일 또는 전화번호" required></div><div class="form-field"><label class="form-label" for="inquiry-type">문의 분야 <span aria-hidden="true">*</span></label><select class="form-control" id="inquiry-type" name="inquiry_type" required><option value="" selected disabled>가장 고민인 영역을 선택해 주세요</option><option value="landing_page">랜딩페이지 제작</option><option value="logo_branding">로고·브랜딩</option><option value="cardpilot">카드파일럿 베타 참여</option><option value="other">기타 문의</option></select></div><div class="form-field"><label class="form-label" for="inquiry-message">문의 내용 <span class="mono">선택</span></label><textarea class="form-control" id="inquiry-message" name="message" maxlength="1000" placeholder="필요한 작업이나 궁금한 점을 적어 주세요"></textarea></div><label class="honeypot" aria-hidden="true">웹사이트<input name="website" type="text" tabindex="-1" autocomplete="off"></label><input name="started_at" type="hidden"><label class="form-consent"><input name="privacy_consent" type="checkbox" required><span><a href="./privacy.html" target="_blank" rel="noopener noreferrer">개인정보 수집·이용</a>에 동의합니다. 수집: 이름/회사명, 연락처, 문의 분야·내용 / 목적: 상담 및 회신 / 보유: 상담 종료 후 6개월 (동의 거부 시 폼 접수 불가)</span></label><button class="btn primary form-submit" type="submit">문의 남기기</button><p class="form-status" data-form-status role="status" aria-live="polite"></p><p class="form-note">입력 내용은 공개되지 않으며 관리자만 확인합니다.</p></form></div></div></section>
   </main>
   <footer><div class="wrap"><span>© 2026 HARU HANKAN</span><span class="footer-links"><a href="./privacy.html">개인정보처리방침</a><a href="./terms.html">서비스 이용 안내</a><a href="https://www.instagram.com/haruhankan.official/" target="_blank" rel="noopener noreferrer">Instagram @haruhankan.official</a></span><span>zxc1316@naver.com</span></div></footer>
   <script>
@@ -119,6 +138,30 @@
       var reveals=document.querySelectorAll('.reveal');
       if(reduceMotion||!('IntersectionObserver' in window))reveals.forEach(function(element){element.classList.add('is-visible');});
       else{var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}});},{threshold:.15});reveals.forEach(function(element){observer.observe(element);});}
+      var inquiryForm=document.querySelector('[data-inquiry-form]');
+      if(inquiryForm){
+        var endpoint='https://hvnoylwqzpbxxhmnqbzb.supabase.co/functions/v1/submit-haru-hankan-inquiry';
+        var publicKey='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh2bm95bHdxenBieHhobW5xYnpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyODYxNjQsImV4cCI6MjEwMjg2MjE2NH0.XnmO_z_QGv4DFPMo3kf-IH2I5MIo3QcEHi49CRjJ38s';
+        var startedInput=inquiryForm.querySelector('[name="started_at"]');
+        var resetStartedAt=function(){startedInput.value=String(Date.now());};
+        resetStartedAt();
+        inquiryForm.addEventListener('submit',async function(event){
+          event.preventDefault();
+          if(!inquiryForm.reportValidity())return;
+          var button=inquiryForm.querySelector('button[type="submit"]');
+          var status=inquiryForm.querySelector('[data-form-status]');
+          var data=new FormData(inquiryForm);
+          var payload={name:String(data.get('name')||'').trim(),contact:String(data.get('contact')||'').trim(),inquiry_type:String(data.get('inquiry_type')||''),message:String(data.get('message')||'').trim(),privacy_consent:data.get('privacy_consent')==='on',website:String(data.get('website')||''),started_at:Number(data.get('started_at'))};
+          button.disabled=true;button.setAttribute('aria-busy','true');status.className='form-status';status.textContent='문의를 안전하게 접수하고 있습니다…';
+          try{
+            var response=await fetch(endpoint,{method:'POST',headers:{'Authorization':'Bearer '+publicKey,'apikey':publicKey,'Content-Type':'application/json'},body:JSON.stringify(payload)});
+            var result=await response.json().catch(function(){return {};});
+            if(!response.ok)throw new Error(result.error||'접수에 실패했습니다.');
+            inquiryForm.reset();resetStartedAt();status.className='form-status success';status.textContent='접수되었습니다. 접수번호: '+result.reference;
+          }catch(error){status.className='form-status error';status.textContent=error.message+' 메일 문의도 이용하실 수 있습니다.';}
+          finally{button.disabled=false;button.removeAttribute('aria-busy');}
+        });
+      }
     })();
   </script>
 </body>
