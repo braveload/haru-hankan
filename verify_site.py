@@ -43,6 +43,9 @@ def verify() -> None:
     for page in html_pages:
         html = page.read_text(encoding="utf-8")
         combined_html += html
+        assert 'href="./typography.css"' in html, (
+            f"Korean typography stylesheet is missing in {page.name}"
+        )
         parser = ReferenceParser()
         parser.feed(html)
         for reference in parser.references:
@@ -52,6 +55,10 @@ def verify() -> None:
 
     assert BUSINESS_EMAIL in combined_html, "Business contact email is missing"
     assert INSTAGRAM_URL in combined_html, "Official Instagram link is missing"
+    typography_css = (SITE_DIR / "typography.css").read_text(encoding="utf-8")
+    compact_css = "".join(typography_css.split())
+    assert "word-break:keep-all" in compact_css
+    assert "overflow-wrap:break-word" in compact_css
     assert not any(email in combined_html for email in OLD_EMAILS), (
         "Old personal contact email is still present"
     )
