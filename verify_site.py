@@ -7,6 +7,7 @@ SITE_DIR = Path(__file__).resolve().parent / "site"
 EXPECTED_HTML_PAGES = 9
 BUSINESS_EMAIL = "zxc1316@naver.com"
 BUSINESS_REGISTRATION_NUMBER = "860-19-02571"
+MAIL_ORDER_REPORT_NUMBER = "2026-서울금천-1899"
 INSTAGRAM_URL = "https://www.instagram.com/haruhankan.official/"
 LANDING_PAGE_PRICES = ("290,000", "490,000", "790,000")
 LOGO_DESIGN_PRICES = ("90,000", "190,000", "390,000")
@@ -61,6 +62,9 @@ def verify() -> None:
     for page in html_pages:
         assert BUSINESS_REGISTRATION_NUMBER in page.read_text(encoding="utf-8"), (
             f"Business registration number is missing in {page.name}"
+        )
+        assert MAIL_ORDER_REPORT_NUMBER in page.read_text(encoding="utf-8"), (
+            f"Mail-order report number is missing in {page.name}"
         )
     assert INSTAGRAM_URL in combined_html, "Official Instagram link is missing"
     service_html = (SITE_DIR / "landing-page-service.html").read_text(encoding="utf-8")
