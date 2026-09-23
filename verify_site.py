@@ -4,7 +4,7 @@ from urllib.parse import unquote, urlsplit
 
 
 SITE_DIR = Path(__file__).resolve().parent / "site"
-EXPECTED_HTML_PAGES = 9
+EXPECTED_HTML_PAGES = 10
 BUSINESS_EMAIL = "zxc1316@naver.com"
 BUSINESS_REGISTRATION_NUMBER = "860-19-02571"
 MAIL_ORDER_REPORT_NUMBER = "2026-서울금천-1899"
@@ -87,6 +87,10 @@ def verify() -> None:
     home_html = (SITE_DIR / "index.html").read_text(encoding="utf-8")
     assert 'data-inquiry-form' in home_html, "Homepage inquiry form is missing"
     assert INQUIRY_ENDPOINT in home_html, "Inquiry API endpoint is missing"
+    assert 'href="./cardpilot-landing.html"' in home_html, "CardPilot landing link is missing"
+    cardpilot_html = (SITE_DIR / "cardpilot-landing.html").read_text(encoding="utf-8")
+    assert "베타 준비 단계" in cardpilot_html, "CardPilot beta-status notice is missing"
+    assert 'href="./index.html#contact"' in cardpilot_html, "CardPilot inquiry link is missing"
     for field in ('name="name"', 'name="contact"', 'name="inquiry_type"', 'name="privacy_consent"'):
         assert field in home_html, f"Inquiry form field is missing: {field}"
     privacy_html = (SITE_DIR / "privacy.html").read_text(encoding="utf-8")

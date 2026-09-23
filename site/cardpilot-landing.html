@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./typography.css">
+<title>카드파일럿 — 베타 준비 안내</title>
+<meta name="description" content="카드사마다 다른 전월실적 제외 규칙을 CSV 업로드로 판정하는 카드파일럿의 베타 준비 안내 페이지">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap');
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Noto Sans KR',sans-serif;background:#F5F7FA;color:#12172B;}
+a{color:#2451E0;text-decoration:none;}
+a:hover{color:#1B3BB0;}
+.three-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));}
+.comparison-scroll{overflow-x:auto;}
+.comparison-table{min-width:760px;}
+@media(max-width:760px){
+  .three-grid{grid-template-columns:1fr!important;}
+  .hero-title{font-size:32px!important;}
+  .section-title{font-size:25px!important;}
+  .header-cta{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div style="width:100%;min-height:100vh;display:flex;flex-direction:column;background:#F5F7FA;">
+
+  <header style="width:100%;background:#FFFFFF;border-bottom:1px solid #E4E8EF;">
+    <div style="max-width:1120px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:32px;height:32px;border-radius:8px;background:#2451E0;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span style="color:#fff;font-weight:900;font-size:16px;">C</span>
+        </div>
+        <span style="font-size:19px;font-weight:900;letter-spacing:-0.02em;">카드파일럿</span>
+      </div>
+      <a class="header-cta" href="#beta" style="background:#2451E0;color:#fff;padding:10px 20px;border-radius:8px;font-size:14px;font-weight:700;">베타 참여 문의</a>
+    </div>
+  </header>
+
+  <section style="width:100%;background:#FFFFFF;">
+    <div style="max-width:1120px;margin:0 auto;padding:96px 24px 88px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px;">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:#ECF1FE;color:#2451E0;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;">
+        베타 준비 중
+      </div>
+      <h1 class="hero-title" style="margin:0;font-size:44px;line-height:1.35;font-weight:900;letter-spacing:-0.02em;max-width:760px;">
+        분명 50만 원 넘게 썼는데,<br>왜 이번 달 카드 할인이 안 들어왔을까?
+      </h1>
+      <p style="margin:0;font-size:17px;line-height:1.7;color:#5B6472;max-width:560px;">
+        카드사마다 다른 전월실적 제외 규칙, 이제 일일이 뒤져보지 마세요.<br>거래내역만 올리면 공식 약관 근거까지 확인할 수 있습니다.
+      </p>
+
+      <div style="margin-top:16px;width:100%;max-width:560px;background:#F9FAFC;border:2px dashed #C7D2E6;border-radius:16px;padding:40px 32px;display:flex;flex-direction:column;align-items:center;gap:14px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#2451E0" stroke-width="1.8">
+          <path d="M12 16V4M12 4l-4 4M12 4l4 4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div style="font-size:15px;font-weight:700;">CSV 업로드 화면 예시</div>
+        <div style="font-size:13px;color:#8A93A6;">실제 업로드 기능은 베타에서 제공할 예정입니다</div>
+      </div>
+
+      <a href="#beta" style="margin-top:4px;font-size:14px;font-weight:700;color:#2451E0;border-bottom:1px solid #2451E0;padding-bottom:2px;">베타 참여 문의하기 →</a>
+    </div>
+  </section>
+
+  <section style="width:100%;background:#F5F7FA;">
+    <div style="max-width:1120px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:48px;">
+      <div style="text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;">
+        <h2 class="section-title" style="margin:0;font-size:30px;font-weight:900;letter-spacing:-0.02em;">이런 이유로 혜택을 놓치고 계셨습니다</h2>
+        <p style="margin:0;font-size:15px;color:#5B6472;">카드 실적에서 자주 놓치기 쉬운 3가지 제외 항목</p>
+      </div>
+      <div class="three-grid" style="gap:20px;">
+
+        <div style="background:#FFFFFF;border:1px solid #E4E8EF;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:#FEF2F2;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:700;">상테크(상품권)</div>
+          <div style="font-size:14px;line-height:1.6;color:#5B6472;">상품권·기프트카드 구매는 카드 상품에 따라 실적 계산에서 제외될 수 있어, 상품설명서 확인이 필요합니다.</div>
+        </div>
+
+        <div style="background:#FFFFFF;border:1px solid #E4E8EF;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:#FEF2F2;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="1.8"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:700;">아파트 관리비·공과금</div>
+          <div style="font-size:14px;line-height:1.6;color:#5B6472;">매달 자동이체되는 관리비·공과금이 실적에서 빠지는 줄 모르고 실적을 과대평가하는 경우가 많습니다.</div>
+        </div>
+
+        <div style="background:#FFFFFF;border:1px solid #E4E8EF;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:#FEF2F2;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:700;">할인 적용 건 전체 제외</div>
+          <div style="font-size:14px;line-height:1.6;color:#5B6472;">일부 카드사는 할인·캐시백이 적용된 거래 전체를 실적에서 제외해, 체감 실적과 실제 실적이 크게 어긋납니다.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section style="width:100%;background:#FFFFFF;">
+    <div style="max-width:1120px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:48px;">
+      <div style="text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;">
+        <h2 class="section-title" style="margin:0;font-size:30px;font-weight:900;letter-spacing:-0.02em;">3단계면 충분합니다</h2>
+        <p style="margin:0;font-size:15px;color:#5B6472;">복잡한 설정 없이, 파일 하나로 시작하세요</p>
+      </div>
+      <div class="three-grid" style="gap:32px;">
+
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#2451E0;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;">1</div>
+          <div style="font-size:16px;font-weight:700;">카드사 웹에서 CSV 다운로드</div>
+          <div style="font-size:14px;line-height:1.6;color:#5B6472;">카드사 홈페이지의 거래내역 조회 메뉴에서 CSV로 내려받으세요.</div>
+          <div style="margin-top:4px;display:inline-flex;align-items:center;gap:6px;background:#F5F7FA;border:1px solid #E4E8EF;border-radius:8px;padding:8px 12px;font-size:12.5px;color:#5B6472;width:fit-content;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A93A6" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01" stroke-linecap="round"/></svg>
+            카드사별 다운로드 경로 안내
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#2451E0;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;">2</div>
+          <div style="font-size:16px;font-weight:700;">드래그 앤 드롭</div>
+          <div style="font-size:14px;line-height:1.6;color:#5B6472;">다운로드한 파일을 카드파일럿 화면에 끌어다 놓기만 하면 자동으로 분석이 시작됩니다.</div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#2451E0;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;">3</div>
+          <div style="font-size:16px;font-weight:700;">거래별 판정 및 근거 확인</div>
+          <div style="font-size:14px;line-height:1.6;color:#5B6472;">포함·제외·조건부 여부와 함께 공식 상품설명서 근거까지 한눈에 확인하세요.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section style="width:100%;background:#F5F7FA;">
+    <div style="max-width:1120px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:48px;">
+      <div style="text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;">
+        <h2 class="section-title" style="margin:0;font-size:30px;font-weight:900;letter-spacing:-0.02em;">추측이 아니라, 근거로 판정합니다</h2>
+        <p style="margin:0;font-size:15px;color:#5B6472;max-width:640px;">베타에서는 공식 상품설명서 기반 버전형 룰 엔진으로 계산하도록 준비하고 있습니다</p>
+      </div>
+
+      <div class="comparison-scroll" style="background:#FFFFFF;border:1px solid #E4E8EF;border-radius:16px;">
+        <div class="comparison-table"><div style="display:grid;grid-template-columns:200px repeat(3,1fr);">
+          <div style="padding:18px 20px;font-size:13px;font-weight:700;color:#8A93A6;">비교 항목</div>
+          <div style="padding:18px 20px;font-size:14px;font-weight:700;border-left:1px solid #E4E8EF;text-align:center;">카드사 앱</div>
+          <div style="padding:18px 20px;font-size:14px;font-weight:700;border-left:1px solid #E4E8EF;text-align:center;">가계부 앱</div>
+          <div style="padding:18px 20px;font-size:14px;font-weight:900;color:#2451E0;background:#ECF1FE;border-left:1px solid #E4E8EF;text-align:center;">카드파일럿</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:200px repeat(3,1fr);border-top:1px solid #E4E8EF;">
+          <div style="padding:18px 20px;font-size:14px;font-weight:700;">실적 집계</div>
+          <div style="padding:18px 20px;font-size:13px;color:#5B6472;border-left:1px solid #E4E8EF;text-align:center;">O (결과값만)</div>
+          <div style="padding:18px 20px;font-size:13px;color:#5B6472;border-left:1px solid #E4E8EF;text-align:center;">소비분류 중심, 실적 미반영</div>
+          <div style="padding:18px 20px;font-size:13px;font-weight:700;color:#059669;background:#ECF1FE;border-left:1px solid #E4E8EF;text-align:center;">O</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:200px repeat(3,1fr);border-top:1px solid #E4E8EF;">
+          <div style="padding:18px 20px;font-size:14px;font-weight:700;">판정 근거 표시</div>
+          <div style="padding:18px 20px;font-size:13px;color:#B0B7C3;border-left:1px solid #E4E8EF;text-align:center;">X</div>
+          <div style="padding:18px 20px;font-size:13px;color:#B0B7C3;border-left:1px solid #E4E8EF;text-align:center;">X</div>
+          <div style="padding:18px 20px;font-size:13px;font-weight:700;color:#059669;background:#ECF1FE;border-left:1px solid #E4E8EF;text-align:center;">O (제외사유·규칙버전·근거)</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:200px repeat(3,1fr);border-top:1px solid #E4E8EF;">
+          <div style="padding:18px 20px;font-size:14px;font-weight:700;">여러 카드 통합 비교</div>
+          <div style="padding:18px 20px;font-size:13px;color:#5B6472;border-left:1px solid #E4E8EF;text-align:center;">X (자사 카드만)</div>
+          <div style="padding:18px 20px;font-size:13px;color:#5B6472;border-left:1px solid #E4E8EF;text-align:center;">소비 항목 기준으로만</div>
+          <div style="padding:18px 20px;font-size:13px;font-weight:700;color:#059669;background:#ECF1FE;border-left:1px solid #E4E8EF;text-align:center;">O (목표)</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:200px repeat(3,1fr);border-top:1px solid #E4E8EF;">
+          <div style="padding:18px 20px;font-size:14px;font-weight:700;">수동 수정 / 재계산</div>
+          <div style="padding:18px 20px;font-size:13px;color:#B0B7C3;border-left:1px solid #E4E8EF;text-align:center;">X</div>
+          <div style="padding:18px 20px;font-size:13px;color:#B0B7C3;border-left:1px solid #E4E8EF;text-align:center;">X</div>
+          <div style="padding:18px 20px;font-size:13px;font-weight:700;color:#059669;background:#ECF1FE;border-left:1px solid #E4E8EF;text-align:center;">O</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:200px repeat(3,1fr);border-top:1px solid #E4E8EF;">
+          <div style="padding:18px 20px;font-size:14px;font-weight:700;">카드사별 규칙 최신화</div>
+          <div style="padding:18px 20px;font-size:13px;color:#5B6472;border-left:1px solid #E4E8EF;text-align:center;">자사만</div>
+          <div style="padding:18px 20px;font-size:13px;color:#5B6472;border-left:1px solid #E4E8EF;text-align:center;">미반영</div>
+          <div style="padding:18px 20px;font-size:13px;font-weight:700;color:#059669;background:#ECF1FE;border-left:1px solid #E4E8EF;text-align:center;">지속 관리 (경쟁력)</div>
+        </div>
+        </div>
+      </div>
+
+      <div style="background:#12172B;border-radius:16px;padding:28px 32px;display:flex;align-items:center;gap:20px;">
+        <div style="width:44px;height:44px;border-radius:12px;background:#2451E0;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7l7-4z" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div style="color:#fff;font-size:15px;font-weight:700;margin-bottom:4px;">AI는 가맹점명 분류 같은 보조 역할만 맡도록 설계합니다</div>
+          <div style="color:#AAB2C5;font-size:13.5px;line-height:1.6;">최종 실적 계산은 버전형 규칙 엔진이 수행하고, 판정 근거를 확인할 수 있도록 준비합니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="width:100%;background:#FFFFFF;">
+    <div style="max-width:1120px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:48px;">
+      <div style="text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;">
+        <h2 class="section-title" style="margin:0;font-size:30px;font-weight:900;letter-spacing:-0.02em;">금융 데이터 보호 원칙도 함께 준비합니다</h2>
+        <p style="margin:0;font-size:15px;color:#5B6472;">아래 내용은 베타 출시 전 적용·검증할 예정인 운영 원칙입니다</p>
+      </div>
+      <div class="three-grid" style="gap:20px;">
+
+        <div style="background:#F5F7FA;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:#ECFDF5;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.8"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke-linecap="round"/><circle cx="12" cy="15" r="1.4" fill="#059669" stroke="none"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:700;">인증정보 미수집 원칙</div>
+          <div style="font-size:14px;line-height:1.6;color:#5B6472;">카드 비밀번호, CVC 등 인증정보를 요청하거나 저장하지 않는 구조로 준비합니다.</div>
+        </div>
+
+        <div style="background:#F5F7FA;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:#ECFDF5;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.8"><path d="M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7l7-4z" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:700;">HTTPS 전송 적용 예정</div>
+          <div style="font-size:14px;line-height:1.6;color:#5B6472;">베타에서는 업로드 데이터를 암호화된 HTTPS 구간으로만 전송하도록 적용·검증할 예정입니다.</div>
+        </div>
+
+        <div style="background:#F5F7FA;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:#ECFDF5;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="1.8"><path d="M4 7h16M9 7V4h6v3M6 7l1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size:16px;font-weight:700;">데이터 삭제 기능 제공 예정</div>
+          <div style="font-size:14px;line-height:1.6;color:#5B6472;">업로드한 거래내역을 사용자가 직접 삭제할 수 있는 기능을 베타 범위에 포함할 예정입니다.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="beta" style="width:100%;background:#12172B;">
+    <div style="max-width:640px;margin:0 auto;padding:88px 24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(36,81,224,0.18);color:#8FA8F5;padding:6px 14px;border-radius:20px;font-size:13px;font-weight:700;">
+        베타 참여 사전 문의
+      </div>
+      <h2 style="margin:0;font-size:32px;font-weight:900;color:#fff;letter-spacing:-0.02em;">카드파일럿 베타 소식을<br>먼저 받아보세요</h2>
+      <p style="margin:0;font-size:15px;line-height:1.7;color:#AAB2C5;max-width:440px;">현재 베타를 준비하고 있습니다. 하루한칸 문의폼에서 ‘카드파일럿 베타 참여’를 선택해 남겨주세요.</p>
+
+      <a href="./index.html#contact" style="margin-top:12px;width:100%;max-width:420px;padding:15px 22px;border-radius:8px;background:#2451E0;color:#fff;font-size:15px;font-weight:700;">하루한칸 문의폼에서 베타 참여 신청</a>
+      <p style="margin:0;font-size:12px;color:#6B7385;">카드파일럿은 베타 준비 단계이며 기능과 운영 정책은 출시 전 변경될 수 있습니다.</p>
+    </div>
+  </section>
+
+  <footer style="width:100%;background:#0D1120;">
+    <div style="max-width:1120px;margin:0 auto;padding:28px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <a href="./index.html" style="font-size:13px;color:#6B7385;">← 하루한칸 홈으로</a>
+      <span style="font-size:13px;color:#6B7385;">© 2026 하루한칸 · 카드파일럿 · 사업자등록번호 860-19-02571 · 통신판매업 신고번호 제2026-서울금천-1899호</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
