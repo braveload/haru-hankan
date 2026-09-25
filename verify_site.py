@@ -4,7 +4,7 @@ from urllib.parse import unquote, urlsplit
 
 
 SITE_DIR = Path(__file__).resolve().parent / "site"
-EXPECTED_HTML_PAGES = 10
+EXPECTED_HTML_PAGES = 11
 BUSINESS_EMAIL = "zxc1316@naver.com"
 BUSINESS_REGISTRATION_NUMBER = "860-19-02571"
 MAIL_ORDER_REPORT_NUMBER = "2026-서울금천-1899"
@@ -60,12 +60,13 @@ def verify() -> None:
 
     assert BUSINESS_EMAIL in combined_html, "Business contact email is missing"
     for page in html_pages:
-        assert BUSINESS_REGISTRATION_NUMBER in page.read_text(encoding="utf-8"), (
-            f"Business registration number is missing in {page.name}"
-        )
-        assert MAIL_ORDER_REPORT_NUMBER in page.read_text(encoding="utf-8"), (
-            f"Mail-order report number is missing in {page.name}"
-        )
+        if page.name != "inquiries.html":
+            assert BUSINESS_REGISTRATION_NUMBER in page.read_text(encoding="utf-8"), (
+                f"Business registration number is missing in {page.name}"
+            )
+            assert MAIL_ORDER_REPORT_NUMBER in page.read_text(encoding="utf-8"), (
+                f"Mail-order report number is missing in {page.name}"
+            )
     assert INSTAGRAM_URL in combined_html, "Official Instagram link is missing"
     service_html = (SITE_DIR / "landing-page-service.html").read_text(encoding="utf-8")
     assert all(price in service_html for price in LANDING_PAGE_PRICES), (
@@ -87,7 +88,7 @@ def verify() -> None:
     home_html = (SITE_DIR / "index.html").read_text(encoding="utf-8")
     assert 'data-inquiry-form' in home_html, "Homepage inquiry form is missing"
     assert INQUIRY_ENDPOINT in home_html, "Inquiry API endpoint is missing"
-    assert 'href="./cardpilot-landing.html"' in home_html, "CardPilot landing link is missing"
+    assert 'href="https://braveload.github.io/cardpilot/"' in home_html, "CardPilot site link is missing"
     cardpilot_html = (SITE_DIR / "cardpilot-landing.html").read_text(encoding="utf-8")
     assert "베타 준비 단계" in cardpilot_html, "CardPilot beta-status notice is missing"
     assert 'href="./index.html#contact"' in cardpilot_html, "CardPilot inquiry link is missing"
@@ -95,6 +96,11 @@ def verify() -> None:
         assert field in home_html, f"Inquiry form field is missing: {field}"
     privacy_html = (SITE_DIR / "privacy.html").read_text(encoding="utf-8")
     assert "상담 종료 후 6개월" in privacy_html, "Inquiry retention notice is missing"
+    inquiry_admin_html = (SITE_DIR / "inquiries.html").read_text(encoding="utf-8")
+    assert 'noindex,nofollow,noarchive' in inquiry_admin_html, "Inquiry admin should not be indexed"
+    assert "PUBLISHABLE_KEY" in inquiry_admin_html, "Inquiry admin sign-in setup is missing"
+    assert "SUPABASE_SERVICE_ROLE_KEY" not in inquiry_admin_html, "Server-only key leaked into the public page"
+    assert 'Disallow: /inquiries.html' in (SITE_DIR / "robots.txt").read_text(encoding="utf-8")
 
 
 if __name__ == "__main__":

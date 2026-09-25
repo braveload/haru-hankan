@@ -17,6 +17,8 @@ render.yaml      Render 정적 사이트 설정
 
 홈페이지 문의는 Supabase의 `haru_hankan_inquiries` 테이블에 저장됩니다. 공개 사용자는 테이블을 직접 조회하거나 수정할 수 없고, 제출용 Edge Function만 서버 권한으로 기록합니다.
 
+문의 관리 페이지는 https://haru-hankan.onrender.com/inquiries.html 입니다. 사업용 이메일 로그인 후 별도 관리 Edge Function을 통해 최근 문의를 확인하고 상태를 변경하며, 공개 페이지에는 DB 서버 비밀키를 두지 않습니다.
+
 ## 로컬 확인
 
 ```powershell

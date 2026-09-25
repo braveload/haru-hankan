@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+Disallow: /inquiries.html
 Sitemap: https://haru-hankan.onrender.com/sitemap.xml
