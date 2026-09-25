@@ -171,7 +171,7 @@
       loader.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
       loader.onload=async function(){
         try{
-          var auth=window.supabase.createClient('https://hvnoylwqzpbxxhmnqbzb.supabase.co','sb_publishable_lVQLuypc6daj23RZp3x_ug_KfjJPOr0',{auth:{storage:window.sessionStorage,persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+          var auth=window.supabase.createClient('https://hvnoylwqzpbxxhmnqbzb.supabase.co','sb_publishable_lVQLuypc6daj23RZp3x_ug_KfjJPOr0',{auth:{flowType:'implicit',storage:window.sessionStorage,persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
           var result=await auth.auth.getSession();
           var email=result.data&&result.data.session&&result.data.session.user&&String(result.data.session.user.email||'').toLowerCase();
           if(email==='zxc1316@naver.com'){location.replace('/inquiries.html');return;}

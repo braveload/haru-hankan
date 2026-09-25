@@ -64,7 +64,7 @@
       var list=document.getElementById('inquiry-list');
       var count=document.getElementById('inquiry-count');
       if(!window.supabase){loginNotice.textContent='로그인 모듈을 불러오지 못했습니다. 페이지를 새로고침해 주세요.';return;}
-      var client=window.supabase.createClient(PROJECT_URL,PUBLISHABLE_KEY,{auth:{storage:window.sessionStorage,persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+      var client=window.supabase.createClient(PROJECT_URL,PUBLISHABLE_KEY,{auth:{flowType:'implicit',storage:window.sessionStorage,persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
 
       function setNotice(node,message,kind){node.textContent=message||'';node.className='notice'+(kind?' '+kind:'');}
       function showLogin(message,kind){loginPanel.classList.remove('hidden');listPanel.classList.add('hidden');if(message)setNotice(loginNotice,message,kind);}
