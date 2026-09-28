@@ -10,6 +10,7 @@ BUSINESS_REGISTRATION_NUMBER = "860-19-02571"
 MAIL_ORDER_REPORT_NUMBER = "2026-서울금천-1899"
 INSTAGRAM_URL = "https://www.instagram.com/haruhankan.official/"
 LANDING_PAGE_PRICES = ("290,000", "490,000", "790,000")
+MAINTENANCE_PRICES = ("49,000", "99,000", "199,000", "539,000", "1,089,000", "2,189,000")
 LOGO_DESIGN_PRICES = ("90,000", "190,000", "390,000")
 OLD_EMAILS = ("ygham82@gmail.com", "ygham82%40gmail.com")
 INQUIRY_ENDPOINT = "https://hvnoylwqzpbxxhmnqbzb.supabase.co/functions/v1/submit-haru-hankan-inquiry"
@@ -73,6 +74,12 @@ def verify() -> None:
         "Landing-page package pricing is incomplete"
     )
     assert 'id="pricing"' in service_html, "Pricing section anchor is missing"
+    assert all(price in service_html for price in MAINTENANCE_PRICES), (
+        "Website maintenance monthly and annual pricing is incomplete"
+    )
+    assert 'id="maintenance"' in service_html, "Maintenance pricing section is missing"
+    for detail in ("12개월 이용", "30일간 무상", "부가세 포함", "신규 페이지·기능 개발"):
+        assert detail in service_html, f"Maintenance pricing detail is missing: {detail}"
     logo_service_html = (SITE_DIR / "logo-design-service.html").read_text(encoding="utf-8")
     assert all(price in logo_service_html for price in LOGO_DESIGN_PRICES), (
         "Logo-design package pricing is incomplete"
