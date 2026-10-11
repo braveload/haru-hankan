@@ -15,7 +15,106 @@
   <link rel="icon" href="./assets/brand/haru-hankan-symbol.svg" type="image/svg+xml">
   <title>소상공인 랜딩페이지 제작 | 하루한칸</title>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","name":"랜딩페이지 제작","provider":{"@type":"Organization","name":"하루한칸","url":"https://haru-hankan.onrender.com/"},"description":"소상공인과 1인 사업자를 위한 반응형 랜딩페이지 제작 서비스","areaServed":"KR","offers":{"@type":"AggregateOffer","lowPrice":"290000","highPrice":"790000","priceCurrency":"KRW","offerCount":"3","offers":[{"@type":"Offer","name":"Lite","price":"290000","priceCurrency":"KRW"},{"@type":"Offer","name":"Standard","price":"490000","priceCurrency":"KRW"},{"@type":"Offer","name":"Premium","price":"790000","priceCurrency":"KRW"}]}}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "하루한칸",
+      "url": "https://haru-hankan.onrender.com/",
+      "@id": "https://haru-hankan.onrender.com/#organization"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://haru-hankan.onrender.com/#website",
+      "url": "https://haru-hankan.onrender.com/",
+      "name": "하루한칸",
+      "inLanguage": "ko-KR",
+      "publisher": {
+        "@id": "https://haru-hankan.onrender.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://haru-hankan.onrender.com/landing-page-service.html#webpage",
+      "url": "https://haru-hankan.onrender.com/landing-page-service.html",
+      "name": "소상공인 랜딩페이지 제작 | 하루한칸",
+      "inLanguage": "ko-KR",
+      "isPartOf": {
+        "@id": "https://haru-hankan.onrender.com/#website"
+      },
+      "publisher": {
+        "@id": "https://haru-hankan.onrender.com/#organization"
+      },
+      "mainEntity": {
+        "@id": "https://haru-hankan.onrender.com/landing-page-service.html#service"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "랜딩페이지 제작",
+      "provider": {
+        "@id": "https://haru-hankan.onrender.com/#organization"
+      },
+      "description": "소상공인과 1인 사업자를 위한 반응형 랜딩페이지 제작 서비스",
+      "areaServed": "KR",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "290000",
+        "highPrice": "790000",
+        "priceCurrency": "KRW",
+        "offerCount": "3",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Lite",
+            "price": "290000",
+            "priceCurrency": "KRW",
+            "url": "https://haru-hankan.onrender.com/landing-page-service.html#pricing",
+            "seller": {
+              "@id": "https://haru-hankan.onrender.com/#organization"
+            },
+            "itemOffered": {
+              "@id": "https://haru-hankan.onrender.com/landing-page-service.html#service"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Standard",
+            "price": "490000",
+            "priceCurrency": "KRW",
+            "url": "https://haru-hankan.onrender.com/landing-page-service.html#pricing",
+            "seller": {
+              "@id": "https://haru-hankan.onrender.com/#organization"
+            },
+            "itemOffered": {
+              "@id": "https://haru-hankan.onrender.com/landing-page-service.html#service"
+            }
+          },
+          {
+            "@type": "Offer",
+            "name": "Premium",
+            "price": "790000",
+            "priceCurrency": "KRW",
+            "url": "https://haru-hankan.onrender.com/landing-page-service.html#pricing",
+            "seller": {
+              "@id": "https://haru-hankan.onrender.com/#organization"
+            },
+            "itemOffered": {
+              "@id": "https://haru-hankan.onrender.com/landing-page-service.html#service"
+            }
+          }
+        ]
+      },
+      "@id": "https://haru-hankan.onrender.com/landing-page-service.html#service",
+      "url": "https://haru-hankan.onrender.com/landing-page-service.html",
+      "serviceType": "랜딩페이지 제작",
+      "mainEntityOfPage": {
+        "@id": "https://haru-hankan.onrender.com/landing-page-service.html#webpage"
+      }
+    }
+  ]
+}
   </script>
   <style>
     :root { --ink:#15181c; --paper:#f1f3f5; --panel:#fff; --muted:#606a73; --line:#d7dde2; --accent:#ff9142; --accent-soft:#fff1e5; }

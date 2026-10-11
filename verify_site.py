@@ -1,4 +1,6 @@
 from html.parser import HTMLParser
+import json
+import re
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -48,6 +50,29 @@ def verify() -> None:
     combined_html = ""
     for page in html_pages:
         html = page.read_text(encoding="utf-8")
+        for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+            schema = json.loads(block)
+            assert schema.get("@context") == "https://schema.org", page.name
+            if "@graph" in schema:
+                nodes = schema["@graph"]
+                ids = [node["@id"] for node in nodes]
+                assert len(ids) == len(set(ids)), f"Duplicate schema identifiers: {page.name}"
+                webpage = next(node for node in nodes if node["@type"] == "WebPage")
+                canonical = re.search(r'<link rel="canonical" href="([^"]+)"', html)[1]
+                assert webpage["url"] == canonical, page.name
+                for node in nodes:
+                    if node["@type"] == "Service":
+                        assert node["provider"]["@id"] in ids, page.name
+                        offers = node["offers"]["offers"]
+                        prices = [int(offer["price"]) for offer in offers]
+                        assert min(prices) == int(node["offers"]["lowPrice"]), page.name
+                        assert max(prices) == int(node["offers"]["highPrice"]), page.name
+                        assert len(offers) == int(node["offers"]["offerCount"]), page.name
+                        for offer in offers:
+                            assert offer["priceCurrency"] == "KRW", page.name
+                            assert format(int(offer["price"]), ",") in html, page.name
+                            assert offer["url"] == canonical + "#pricing", page.name
+                            assert offer["itemOffered"]["@id"] == node["@id"], page.name
         combined_html += html
         assert 'href="./typography.css"' in html, (
             f"Korean typography stylesheet is missing in {page.name}"
