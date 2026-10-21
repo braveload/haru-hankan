@@ -6,7 +6,7 @@ from urllib.parse import unquote, urlsplit
 
 
 SITE_DIR = Path(__file__).resolve().parent / "site"
-EXPECTED_HTML_PAGES = 11
+EXPECTED_HTML_PAGES = 12
 BUSINESS_EMAIL = "zxc1316@naver.com"
 BUSINESS_REGISTRATION_NUMBER = "860-19-02571"
 MAIL_ORDER_REPORT_NUMBER = "2026-서울금천-1899"
