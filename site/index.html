@@ -114,7 +114,17 @@
     .mono { font-family:"IBM Plex Mono",ui-monospace,"SFMono-Regular",monospace; }
     .wrap { max-width:960px; margin-inline:auto; padding-inline:20px; }
     nav.top { padding-block:22px; border-bottom:1px solid var(--line); }
-    nav.top .wrap { display:flex; align-items:center; justify-content:space-between; }
+    nav.top .wrap { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .top-actions { position:relative; display:flex; align-items:center; gap:12px; margin-left:auto; }
+    .service-menu summary { display:flex; align-items:center; gap:9px; min-height:44px; padding:8px 12px; cursor:pointer; list-style:none; font-size:13px; font-weight:600; }
+    .service-menu summary::-webkit-details-marker { display:none; }
+    .service-menu summary::after { content:""; width:6px; height:6px; border-right:1.5px solid currentColor; border-bottom:1.5px solid currentColor; transform:rotate(45deg); margin-top:-3px; }
+    .service-menu[open] summary::after { transform:rotate(225deg); margin-top:3px; }
+    .service-links { position:absolute; top:calc(100% + 8px); right:0; z-index:10; display:grid; min-width:220px; max-width:calc(100vw - 40px); padding:6px; background:var(--panel); border:1px solid var(--line); border-radius:12px; box-shadow:0 10px 24px rgba(20,24,28,.12); }
+    .service-menu:not([open]) .service-links { display:none; }
+    .service-links a { display:flex; align-items:center; min-height:44px; padding:10px 14px; border-radius:7px; text-decoration:none; font-size:14px; white-space:nowrap; }
+    .service-links a:hover { background:var(--accent-soft); }
+    .service-menu summary:focus-visible,.service-links a:focus-visible { outline:2px solid var(--ink); outline-offset:3px; border-radius:7px; }
     .brand { display:flex; align-items:center; gap:10px; font-weight:700; font-size:17px; letter-spacing:-.01em; text-decoration:none; }
     .brand svg { width:70px; color:var(--ink); transition:color .2s ease; }
     .brand:hover svg { color:var(--accent); }
@@ -193,7 +203,7 @@
   </style>
 </head>
 <body>
-  <nav class="top"><div class="wrap"><a class="brand" href="#top" aria-label="하루한칸 홈"><svg viewBox="0 0 220 44" aria-hidden="true"><rect class="cell" x="8" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="51" y="6" width="32" height="32" rx="8"></rect><rect class="cell cell--today" x="94" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="137" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="180" y="6" width="32" height="32" rx="8"></rect></svg>Haru Hankan</a><a class="cta" href="#contact">문의하기</a></div></nav>
+  <nav class="top" aria-label="주요 메뉴"><div class="wrap"><a class="brand" href="#top" aria-label="하루한칸 홈"><svg viewBox="0 0 220 44" aria-hidden="true"><rect class="cell" x="8" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="51" y="6" width="32" height="32" rx="8"></rect><rect class="cell cell--today" x="94" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="137" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="180" y="6" width="32" height="32" rx="8"></rect></svg>Haru Hankan</a><div class="top-actions"><details class="service-menu"><summary>서비스</summary><div class="service-links"><a href="./landing-page-service.html">랜딩페이지 제작</a><a href="./system-development.html">맞춤형 시스템 개발</a></div></details><a class="cta" href="#contact">문의하기</a></div></div></nav>
   <header class="hero" id="top"><div class="wrap"><div class="eyebrow">1인 개발 스튜디오</div><h1>하루를 골라, 하나를 만듭니다.</h1><p class="hero-service">소상공인 · 1인사업자를 위한 랜딩페이지 제작</p><p class="lede">기획부터 디자인·개발·배포까지 한 번에.</p><div class="hero-actions"><a class="btn primary" href="#work">만든 것들 보기</a><a class="btn ghost" href="#contact">작업 문의</a></div></div></header>
   <main>
     <section id="work" class="reveal"><div class="wrap"><div class="section-head"><h2>만드는 것들</h2><div class="note">PRODUCTS &amp; SERVICES</div></div><div class="work">
