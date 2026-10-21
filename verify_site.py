@@ -6,7 +6,7 @@ from urllib.parse import unquote, urlsplit
 
 
 SITE_DIR = Path(__file__).resolve().parent / "site"
-EXPECTED_HTML_PAGES = 12
+EXPECTED_HTML_PAGES = 14
 BUSINESS_EMAIL = "zxc1316@naver.com"
 BUSINESS_REGISTRATION_NUMBER = "860-19-02571"
 MAIL_ORDER_REPORT_NUMBER = "2026-서울금천-1899"
@@ -38,7 +38,7 @@ def local_target(page: Path, reference: str) -> Path | None:
     target = SITE_DIR / path.lstrip("/") if path.startswith("/") else page.parent / path
     resolved = target.resolve()
     resolved.relative_to(SITE_DIR.resolve())
-    return resolved
+    return resolved / "index.html" if resolved.is_dir() else resolved
 
 
 def verify() -> None:

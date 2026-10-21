@@ -1,0 +1,25 @@
+.breadcrumbs{max-width:1100px;margin:24px auto;padding:0 24px;font-size:14px;color:#5f6368}
+.breadcrumbs ol{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.breadcrumbs li+li:before{content:"/";margin-right:8px;color:#737981}
+.breadcrumbs a{color:inherit;text-underline-offset:4px}
+.service-faq details{border-bottom:1px solid #deded9;padding:18px 0}
+.service-faq summary{cursor:pointer;font-weight:600;min-height:44px;display:list-item;align-content:center}
+.service-faq p{line-height:1.8;color:#5f6368;max-width:800px}
+.mobile-inquiry{display:none}
+.utility-page{margin:0;background:#f1f3f5;color:#15181c;font-family:"IBM Plex Sans",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;line-height:1.8}
+.utility-page header,.utility-page main,.utility-page footer{max-width:800px;margin:auto;padding:28px 24px}
+.utility-page main{min-height:60vh;padding-top:64px}
+.utility-page h1{font-size:clamp(28px,6vw,44px);line-height:1.3}
+.utility-page a{color:#15181c;text-underline-offset:4px}
+.utility-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:28px}
+.utility-actions a,.utility-actions button{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid #d7dde2;border-radius:8px;background:#fff;font:inherit;color:#15181c;cursor:pointer}
+.utility-actions [hidden]{display:none}
+.utility-page footer{font-size:13px;color:#5f6368}
+.breadcrumbs a:focus-visible,.mobile-inquiry a:focus-visible,.utility-page a:focus-visible,.utility-page button:focus-visible,.service-faq summary:focus-visible{outline:3px solid #97501c;outline-offset:4px}
+@media(max-width:760px){
+  body.has-mobile-inquiry{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+  .mobile-inquiry{display:flex;position:fixed;z-index:80;left:0;right:0;bottom:0;padding:12px 20px calc(12px + env(safe-area-inset-bottom,0px));background:#f1f3f5;border-top:1px solid #d8ddd6;box-shadow:0 -4px 18px #15181c0c}
+  .mobile-inquiry[hidden]{display:none}
+  .mobile-inquiry a{display:flex;align-items:center;justify-content:center;min-height:48px;width:100%;background:#15181c;color:#fff;border-radius:9px;text-decoration:none;font:600 15px "IBM Plex Sans",-apple-system,"Malgun Gothic",sans-serif;line-height:1.5;padding:8px;text-align:center}
+  .breadcrumbs{padding:0 20px}
+}

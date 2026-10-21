@@ -201,8 +201,9 @@
     @media (prefers-color-scheme:dark) { .work-card:hover { box-shadow:0 10px 24px rgba(0,0,0,.45); } }
     @media (prefers-reduced-motion:reduce) { .work-card { transition:none; } .work-card:hover { transform:none; } .reveal { opacity:1; transform:none; transition:none; } }
   </style>
+<link rel="stylesheet" href="./marketing-enhancements.css">
 </head>
-<body>
+<body class="has-mobile-inquiry">
   <nav class="top" aria-label="주요 메뉴"><div class="wrap"><a class="brand" href="#top" aria-label="하루한칸 홈"><svg viewBox="0 0 220 44" aria-hidden="true"><rect class="cell" x="8" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="51" y="6" width="32" height="32" rx="8"></rect><rect class="cell cell--today" x="94" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="137" y="6" width="32" height="32" rx="8"></rect><rect class="cell" x="180" y="6" width="32" height="32" rx="8"></rect></svg>Haru Hankan</a><div class="top-actions"><details class="service-menu"><summary>서비스</summary><div class="service-links"><a href="./landing-page-service.html">랜딩페이지 제작</a><a href="./system-development.html">맞춤형 시스템 개발</a></div></details><a class="cta" href="#contact">문의하기</a></div></div></nav>
   <header class="hero" id="top"><div class="wrap"><div class="eyebrow">1인 개발 스튜디오</div><h1>하루를 골라, 하나를 만듭니다.</h1><p class="hero-service">소상공인 · 1인사업자를 위한 랜딩페이지 제작</p><p class="lede">기획부터 디자인·개발·배포까지 한 번에.</p><div class="hero-actions"><a class="btn primary" href="#work">만든 것들 보기</a><a class="btn ghost" href="#contact">작업 문의</a></div></div></header>
   <main>
@@ -215,6 +216,7 @@
     <section id="contact" class="reveal"><div class="wrap"><div class="contact-card"><div class="contact-copy"><h2>오늘, 같이 만들어볼까요.</h2><p>이름과 연락처를 남겨주시면 확인 후 연락드릴게요. 메일이나 인스타그램으로 직접 문의하셔도 됩니다.</p><div class="contact-row"><a class="btn primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=zxc1316%40naver.com&amp;su=%ED%95%98%EB%A3%A8%ED%95%9C%EC%B9%B8%20%EB%AC%B8%EC%9D%98" target="_blank" rel="noopener noreferrer">Gmail로 문의</a><a class="btn ghost" href="https://mail.naver.com/v2/new?to=zxc1316%40naver.com&amp;subject=%ED%95%98%EB%A3%A8%ED%95%9C%EC%B9%B8%20%EB%AC%B8%EC%9D%98" target="_blank" rel="noopener noreferrer">네이버메일로 문의</a><a class="btn ghost" href="https://www.instagram.com/haruhankan.official/" target="_blank" rel="noopener noreferrer" aria-label="하루한칸 인스타그램 새 창에서 보기">Instagram 보기</a></div></div><form class="inquiry-form" data-inquiry-form><div class="form-field"><label class="form-label" for="inquiry-name">이름 또는 회사명 <span aria-hidden="true">*</span></label><input class="form-control" id="inquiry-name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="이름 또는 회사명을 입력해 주세요" required></div><div class="form-field"><label class="form-label" for="inquiry-contact">연락처 <span aria-hidden="true">*</span></label><input class="form-control" id="inquiry-contact" name="contact" type="text" autocomplete="email" maxlength="150" placeholder="이메일 또는 전화번호" required></div><div class="form-field"><label class="form-label" for="inquiry-type">문의 분야 <span aria-hidden="true">*</span></label><select class="form-control" id="inquiry-type" name="inquiry_type" required><option value="" selected disabled>가장 고민인 영역을 선택해 주세요</option><option value="landing_page">랜딩페이지 제작</option><option value="logo_branding">로고·브랜딩</option><option value="cardpilot">카드파일럿 문의</option><option value="other">기타 문의</option></select></div><div class="form-field"><label class="form-label" for="inquiry-message">문의 내용 <span class="mono">선택</span></label><textarea class="form-control" id="inquiry-message" name="message" maxlength="1000" placeholder="필요한 작업이나 궁금한 점을 적어 주세요"></textarea></div><label class="honeypot" aria-hidden="true">웹사이트<input name="website" type="text" tabindex="-1" autocomplete="off"></label><input name="started_at" type="hidden"><label class="form-consent"><input name="privacy_consent" type="checkbox" required><span><a href="./privacy.html" target="_blank" rel="noopener noreferrer">개인정보 수집·이용</a>에 동의합니다. 수집: 이름/회사명, 연락처, 문의 분야·내용 / 목적: 상담 및 회신 / 보유: 상담 종료 후 6개월 (동의 거부 시 폼 접수 불가)</span></label><button class="btn primary form-submit" type="submit">문의 남기기</button><p class="form-status" data-form-status role="status" aria-live="polite"></p><p class="form-note">입력 내용은 공개되지 않으며 관리자만 확인합니다.</p></form></div></div></section>
   </main>
   <footer><div class="wrap"><span>© 2026 HARU HANKAN · 사업자등록번호 860-19-02571 · 통신판매업 신고번호 제2026-서울금천-1899호</span><span class="footer-links"><a href="./privacy.html">개인정보처리방침</a><a href="./terms.html">서비스 이용 안내</a><a href="https://www.instagram.com/haruhankan.official/" target="_blank" rel="noopener noreferrer">Instagram @haruhankan.official</a></span><span>zxc1316@naver.com</span></div></footer>
+  <script src="./inquiry-flow.js"></script>
   <script>
     (function(){
       var reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -231,25 +233,7 @@
       if(inquiryForm){
         var endpoint='https://hvnoylwqzpbxxhmnqbzb.supabase.co/functions/v1/submit-haru-hankan-inquiry';
         var publicKey='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh2bm95bHdxenBieHhobW5xYnpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyODYxNjQsImV4cCI6MjEwMjg2MjE2NH0.XnmO_z_QGv4DFPMo3kf-IH2I5MIo3QcEHi49CRjJ38s';
-        var startedInput=inquiryForm.querySelector('[name="started_at"]');
-        var resetStartedAt=function(){startedInput.value=String(Date.now());};
-        resetStartedAt();
-        inquiryForm.addEventListener('submit',async function(event){
-          event.preventDefault();
-          if(!inquiryForm.reportValidity())return;
-          var button=inquiryForm.querySelector('button[type="submit"]');
-          var status=inquiryForm.querySelector('[data-form-status]');
-          var data=new FormData(inquiryForm);
-          var payload={name:String(data.get('name')||'').trim(),contact:String(data.get('contact')||'').trim(),inquiry_type:String(data.get('inquiry_type')||''),message:String(data.get('message')||'').trim(),privacy_consent:data.get('privacy_consent')==='on',website:String(data.get('website')||''),started_at:Number(data.get('started_at'))};
-          button.disabled=true;button.setAttribute('aria-busy','true');status.className='form-status';status.textContent='문의를 안전하게 접수하고 있습니다…';
-          try{
-            var response=await fetch(endpoint,{method:'POST',headers:{'Authorization':'Bearer '+publicKey,'apikey':publicKey,'Content-Type':'application/json'},body:JSON.stringify(payload)});
-            var result=await response.json().catch(function(){return {};});
-            if(!response.ok)throw new Error(result.error||'접수에 실패했습니다.');
-            inquiryForm.reset();resetStartedAt();status.className='form-status success';status.textContent='접수되었습니다. 접수번호: '+result.reference;
-          }catch(error){status.className='form-status error';status.textContent=error.message+' 메일 문의도 이용하실 수 있습니다.';}
-          finally{button.disabled=false;button.removeAttribute('aria-busy');}
-        });
+        HaruInquiry.mount(inquiryForm,endpoint,publicKey);
       }
     })();
   </script>
@@ -272,5 +256,6 @@
       document.head.appendChild(loader);
     })();
   </script>
+<aside class="mobile-inquiry" data-mobile-inquiry aria-label="제작 문의 바로가기"><a href="#contact">랜딩페이지·로고 제작 문의</a></aside><script src="./mobile-inquiry.js" defer></script>
 </body>
 </html>
