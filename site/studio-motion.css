@@ -1,0 +1,57 @@
+/* Finite brand greeting; scroll effects enhance content that stays visible by default. */
+.hh-brand svg{width:85px;height:auto;flex:none}
+/* A shared interaction rhythm across the five studio pages. */
+@media(prefers-reduced-motion:no-preference){
+  .hh-links a,.top-actions a,.links a,.sample-link,.footer-links a{transition:color .22s ease,text-decoration-color .22s ease}
+  .hh-links a:hover,.top-actions a:hover,.links a:hover,.sample-link:hover,.footer-links a:hover{color:var(--accent)}
+  .btn,.cta:not(div),.form-submit{transition:color .22s ease,background-color .22s ease,border-color .22s ease,box-shadow .22s ease}
+  .btn:active,.form-submit:active{transform:translateY(1px)}
+  .btn:focus-visible,.form-submit:focus-visible{box-shadow:0 0 0 4px #b34c2820}
+  .form-control{transition:border-color .22s ease,background-color .22s ease}
+  .form-control:focus{background-color:#efeee755}
+  summary{transition:color .22s ease}details[open]>summary{color:var(--accent)}
+  details[open]>p,details[open]>ul,.service-links{animation:hh-detail .25s ease-out}
+  .sample,.work-card,.plan,.social-card,.card,.project-caption,.workflow li,.steps li{transition:border-color .3s ease,background-color .3s ease,color .3s ease}
+  @media(hover:hover) and (pointer:fine){
+    .sample:hover,.workflow li:hover,.steps li:hover{background-color:#e9e6dc66}
+    .work-card:hover,.plan:hover{border-top-color:var(--accent)}
+    .project:hover .project-caption,.social-card:hover figcaption,.card:hover .info{color:var(--accent)}
+    .interactive-mark .cell{transition:fill .25s ease,stroke .25s ease}
+  }
+  @supports(animation-timeline:view()){
+    .section-head,.collection-head,.pricing-head,main>section>h2,main>section>.eyebrow,.item,.sample,.work-card,.about,.contact-copy,.inquiry-form,.workflow li,.steps li,.integration-section .panel,.handover-section .grid>div,.faq-section>h2{
+      animation:hh-arrive linear both;animation-timeline:view();animation-range:entry 0% entry 80%;
+    }
+  }
+  @supports(interpolate-size:allow-keywords){
+    :root{interpolate-size:allow-keywords}
+    details::details-content{block-size:0;overflow:clip;transition:block-size .28s ease,content-visibility .28s ease allow-discrete}
+    details[open]::details-content{block-size:auto}
+  }
+}
+@keyframes hh-detail{from{opacity:.6;transform:translateY(-3px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){
+  nav.top .brand .cell,.hh-brand .cell{animation:hh-day 3.8s ease-in-out 1;animation-delay:calc(var(--day,0)*.45s)}
+  nav.top .brand .cell:nth-child(1),.hh-brand .cell:nth-child(1){--day:0}
+  nav.top .brand .cell:nth-child(2),.hh-brand .cell:nth-child(2){--day:1}
+  nav.top .brand .cell:nth-child(3),.hh-brand .cell:nth-child(3){--day:2}
+  nav.top .brand .cell:nth-child(4),.hh-brand .cell:nth-child(4){--day:3}
+  nav.top .brand .cell:nth-child(5),.hh-brand .cell:nth-child(5){--day:4}
+  nav.top .brand .cell,.hh-brand .cell{animation-duration:2.6s;animation-delay:calc(var(--day,0)*.35s)}
+  .hero h1,body>header h1{animation:hh-intro .7s cubic-bezier(.2,.6,.3,1) both}
+  .project-image img,.logo-board img,.social-card img{transition:transform .45s cubic-bezier(.2,.6,.3,1)}
+  @supports(animation-timeline:view()){
+    .project,.social-card,.card,.plan,.example{animation:hh-arrive linear both;animation-timeline:view();animation-range:entry 0% entry 85%}
+  }
+  @media(hover:hover) and (pointer:fine){
+    .project:hover .logo-board img,.social-card:hover img{transform:scale(1.015)}
+    .plan .btn{transition:color .2s,border-color .2s}.plan .btn:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  }
+}
+@keyframes hh-day{0%,12%,42%,100%{fill:transparent;stroke:currentColor}18%,32%{fill:#e78343;stroke:#e78343}}
+@keyframes hh-intro{from{opacity:.45;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes hh-arrive{from{opacity:.45;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:no-preference){nav.top .brand .cell--today,.hh-brand .cell--today{animation-name:hh-today}}
+@keyframes hh-today{0%,100%{fill:#e78343;stroke:transparent}12%,42%{fill:transparent;stroke:currentColor}18%,32%{fill:#e78343;stroke:#e78343}}
+@media(max-width:760px){.hh-brand svg{width:64px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}.project,.social-card,.card,.plan,.example,.hero h1,body>header h1,nav.top .brand .cell,.hh-brand .cell{opacity:1;transform:none}}
