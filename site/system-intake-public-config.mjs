@@ -1,0 +1,2 @@
+export const PROJECT_URL='https://hvnoylwqzpbxxhmnqbzb.supabase.co';
+export const PUBLIC_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh2bm95bHdxenBieHhobW5xYnpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyODYxNjQsImV4cCI6MjEwMjg2MjE2NH0.XnmO_z_QGv4DFPMo3kf-IH2I5MIo3QcEHi49CRjJ38s';
