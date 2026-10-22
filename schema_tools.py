@@ -12,7 +12,7 @@ from urllib.error import HTTPError
 ROOT = Path(__file__).parent / 'site'
 BASE = 'https://haru-hankan.onrender.com/'
 LD = re.compile(r'<script\s+type="application/ld\+json">.*?</script>', re.S)
-EXCLUDED = {'404.html', 'inquiries.html', 'inquiry-complete.html', 'system-admin-check.html'}
+EXCLUDED = {'404.html', 'inquiries.html', 'inquiry-complete.html', 'system-admin-check.html', 'system-consultation.html', 'system-inquiries.html'}
 
 class Element:
     def __init__(self, tag='', attrs=()):
