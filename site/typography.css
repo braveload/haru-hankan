@@ -2,3 +2,8 @@ html[lang="ko"] body {
   word-break: keep-all;
   overflow-wrap: break-word;
 }
+
+/* Shared reading preference, including the separately branded sample pages. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
