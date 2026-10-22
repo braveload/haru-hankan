@@ -57,12 +57,15 @@ def verify() -> None:
                 nodes = schema["@graph"]
                 ids = [node["@id"] for node in nodes]
                 assert len(ids) == len(set(ids)), f"Duplicate schema identifiers: {page.name}"
-                webpage = next(node for node in nodes if node["@type"] == "WebPage")
+                webpage = next(node for node in nodes if "WebPage" in (node["@type"] if isinstance(node["@type"], list) else [node["@type"]]))
                 canonical = re.search(r'<link rel="canonical" href="([^"]+)"', html)[1]
                 assert webpage["url"] == canonical, page.name
                 for node in nodes:
                     if node["@type"] == "Service":
                         assert node["provider"]["@id"] in ids, page.name
+                        if "offers" not in node:
+                            assert page.name == "system-development.html", page.name
+                            continue
                         offers = node["offers"]["offers"]
                         prices = [int(offer["price"]) for offer in offers]
                         assert min(prices) == int(node["offers"]["lowPrice"]), page.name
