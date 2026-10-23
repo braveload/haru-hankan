@@ -133,7 +133,13 @@
       "name": "하루한칸",
       "alternateName": "Haru Hankan",
       "url": "https://haru-hankan.onrender.com/",
-      "logo": "https://haru-hankan.onrender.com/assets/brand/haru-hankan-symbol.svg",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://haru-hankan.onrender.com/assets/brand/haru-hankan-schema-logo.svg",
+        "contentUrl": "https://haru-hankan.onrender.com/assets/brand/haru-hankan-schema-logo.svg",
+        "width": 512,
+        "height": 512
+      },
       "email": "zxc1316@naver.com",
       "taxID": "860-19-02571",
       "sameAs": [
@@ -165,6 +171,20 @@
               "url": "https://haru-hankan.onrender.com/logo-design-service.html"
             },
             "url": "https://haru-hankan.onrender.com/logo-design-service.html#pricing"
+          },
+          {
+            "@type": "Offer",
+            "url": "https://haru-hankan.onrender.com/system-development.html",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://haru-hankan.onrender.com/system-development.html#service",
+              "name": "맞춤형 시스템 개발",
+              "url": "https://haru-hankan.onrender.com/system-development.html",
+              "description": "우리 회사 업무에 맞는 맞춤형 시스템 개발. CRM·연차·견적·예약·재고·업무관리의 개별 견적과 기술 검토를 안내합니다. 개발 상담을 신청하실 수 있습니다.",
+              "provider": {
+                "@id": "https://haru-hankan.onrender.com/#organization"
+              }
+            }
           }
         ]
       },
@@ -197,6 +217,9 @@
         "@id": "https://haru-hankan.onrender.com/#website"
       },
       "publisher": {
+        "@id": "https://haru-hankan.onrender.com/#organization"
+      },
+      "about": {
         "@id": "https://haru-hankan.onrender.com/#organization"
       }
     }
