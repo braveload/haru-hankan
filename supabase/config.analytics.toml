@@ -1,0 +1,5 @@
+# PROPOSAL ONLY: merge only this new function section after deployment approval.
+# Public record/summary actions need anonymous invocation.
+# Admin actions explicitly validate the access token using /auth/v1/user.
+[functions.site-visits]
+verify_jwt = false

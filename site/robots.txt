@@ -4,3 +4,4 @@ Disallow: /inquiries.html
 Sitemap: https://haru-hankan.onrender.com/sitemap.xml
 
 Disallow: /system-inquiries.html
+Disallow: /visit-admin.html
