@@ -25,7 +25,7 @@ declare d date := (statement_timestamp() at time zone 'Asia/Seoul')::date; added
 begin
  if p_site is null or p_site not in ('haru','cardpilot') or p_visitor is null or p_visitor !~ '^[0-9a-f]{64}$' or p_page is null then raise exception 'invalid'; end if;
  if (p_site='haru' and p_page not in ('/','/landing-page-service.html','/logo-design-service.html','/logo-samples.html','/landing-sample.html','/landing-sample-2.html','/landing-sample-3.html','/cardpilot-landing.html','/system-development.html','/system-consultation.html','/privacy.html','/terms.html'))
- or (p_site='cardpilot' and p_page not in ('/','/download-guide.html')) then raise exception 'invalid page'; end if;
+ or (p_site='cardpilot' and p_page not in ('/','/download-guide')) then raise exception 'invalid page'; end if;
  -- Site lock serializes concurrent tabs/retries, including the first visitor of a day.
  perform pg_advisory_xact_lock(hashtext('site-visits:'||p_site));
  update public.visit_sites set started_at=statement_timestamp() where site=p_site and started_at is null;
@@ -48,7 +48,7 @@ end; $$;
 create function public.visit_admin(p_site text) returns jsonb language sql security definer set search_path='' as $$
  select public.visit_summary(p_site)||jsonb_build_object(
  'days',coalesce((select jsonb_agg(jsonb_build_object('day',d.day,'visitors',coalesce(v.visitors,0)) order by d.day)
- from (select generate_series((statement_timestamp() at time zone 'Asia/Seoul')::date-29,(statement_timestamp() at time zone 'Asia/Seoul')::date,'1 day'::interval)::date day) d
+ from (select generate_series((statement_timestamp() at time zone 'Asia/Seoul')::date-29,(statement_timestamp() at time zone 'Asia/Seoul')::date,'1 day'::interval)::date as day) d
  left join public.visit_days v on v.site=p_site and v.day=d.day
  where d.day>=(select (started_at at time zone 'Asia/Seoul')::date from public.visit_sites where site=p_site)), '[]'::jsonb),
  'pages',coalesce((select jsonb_agg(x order by x.viewers desc,x.page) from (select page,sum(viewers) viewers from public.visit_pages where site=p_site and day>=(statement_timestamp() at time zone 'Asia/Seoul')::date-29 group by page) x),'[]'::jsonb));

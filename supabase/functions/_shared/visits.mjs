@@ -1,7 +1,7 @@
 import {ADMIN_ID} from './system-handlers.mjs';
 export const SITES={
   haru:{origin:'https://haru-hankan.onrender.com',pages:['/','/landing-page-service.html','/logo-design-service.html','/logo-samples.html','/landing-sample.html','/landing-sample-2.html','/landing-sample-3.html','/cardpilot-landing.html','/system-development.html','/system-consultation.html','/privacy.html','/terms.html']},
-  cardpilot:{origin:'https://cardpilot-k5y7.onrender.com',pages:['/','/download-guide.html']}
+  cardpilot:{origin:'https://cardpilot-control-20261023.ti-ger82.chatgpt.site',pages:['/','/download-guide']}
 };
 const UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 export const kstDay=(time=Date.now())=>new Date(time+9*3600000).toISOString().slice(0,10);
